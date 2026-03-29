@@ -2,11 +2,22 @@ document.addEventListener("DOMContentLoaded", () => {
   const intro = document.getElementById("intro");
   const main = document.getElementById("main");
 
-  const canUseStorage = (() => {
+  const canUseSessionStorage = (() => {
     try {
-      const key = "__dz_intro_check__";
+      const key = "__dz_session_check__";
       sessionStorage.setItem(key, "1");
       sessionStorage.removeItem(key);
+      return true;
+    } catch {
+      return false;
+    }
+  })();
+
+  const canUseLocalStorage = (() => {
+    try {
+      const key = "__dz_local_check__";
+      localStorage.setItem(key, "1");
+      localStorage.removeItem(key);
       return true;
     } catch {
       return false;
@@ -21,7 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   if (intro && main) {
-    const introSeen = canUseStorage && sessionStorage.getItem("dz_intro_seen") === "yes";
+    const introSeen = canUseSessionStorage && sessionStorage.getItem("dz_intro_seen") === "yes";
 
     if (introSeen) {
       intro.style.display = "none";
@@ -35,7 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
         setTimeout(() => {
           intro.style.display = "none";
           intro.setAttribute("aria-hidden", "true");
-          if (canUseStorage) sessionStorage.setItem("dz_intro_seen", "yes");
+          if (canUseSessionStorage) sessionStorage.setItem("dz_intro_seen", "yes");
           showMain();
         }, 560);
       }, 1650);
@@ -44,48 +55,27 @@ document.addEventListener("DOMContentLoaded", () => {
     showMain();
   }
 
-  const bookingForm = document.getElementById("booking-form");
-  const bookingMessage = document.getElementById("booking-message");
+  const cookieAccepted = canUseLocalStorage && localStorage.getItem("dz_cookie_accepted") === "yes";
 
-  if (bookingForm && bookingMessage) {
-    bookingForm.addEventListener("submit", (event) => {
-      event.preventDefault();
+  if (!cookieAccepted) {
+    const cookieBanner = document.createElement("section");
+    cookieBanner.className = "cookie-banner";
+    cookieBanner.setAttribute("role", "dialog");
+    cookieBanner.setAttribute("aria-live", "polite");
+    cookieBanner.innerHTML = `
+      <p>We use cookies to improve your experience and analyze site traffic.</p>
+      <button type="button" class="main-cta cookie-accept">Accept Cookies</button>
+    `;
 
-      if (!(bookingForm instanceof HTMLFormElement)) return;
-      if (!bookingForm.checkValidity()) {
-        bookingMessage.textContent = "Please complete all required fields before submitting.";
-        bookingMessage.classList.add("is-error");
-        return;
-      }
+    document.body.appendChild(cookieBanner);
 
-      const formData = new FormData(bookingForm);
-      const payload = {
-        name: String(formData.get("name") || "").trim(),
-        email: String(formData.get("email") || "").trim(),
-        company: String(formData.get("company") || "").trim(),
-        date: String(formData.get("date") || "").trim(),
-        goals: String(formData.get("goals") || "").trim()
-      };
-
-      const subject = encodeURIComponent(`New Strategy Call Booking - ${payload.company}`);
-      const body = encodeURIComponent(
-        `New booking request details:\n\n` +
-          `Name: ${payload.name}\n` +
-          `Email: ${payload.email}\n` +
-          `Company: ${payload.company}\n` +
-          `Preferred Date: ${payload.date}\n` +
-          `Project Goals: ${payload.goals}\n`
-      );
-
-      if (canUseStorage) {
-        sessionStorage.setItem("dz_booking_draft", JSON.stringify(payload));
-      }
-
-      bookingMessage.classList.remove("is-error");
-      bookingMessage.textContent = "Thanks! Opening your email app now so your booking details can be sent automatically.";
-
-      window.location.href = `mailto:hello@dzmedia.local?subject=${subject}&body=${body}`;
-      bookingForm.reset();
-    });
+    const acceptButton = cookieBanner.querySelector(".cookie-accept");
+    if (acceptButton) {
+      acceptButton.addEventListener("click", () => {
+        if (canUseLocalStorage) localStorage.setItem("dz_cookie_accepted", "yes");
+        cookieBanner.remove();
+      });
+    }
   }
+
 });
