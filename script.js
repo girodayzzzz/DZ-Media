@@ -15,24 +15,30 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   })();
 
-  const introSeen = canUseStorage && sessionStorage.getItem("dz_intro_seen") === "yes";
+  const showMain = () => {
+    requestAnimationFrame(() => {
+      main.classList.add("is-visible");
+    });
+  };
 
-  main.style.opacity = "1";
+  const introSeen = canUseStorage && sessionStorage.getItem("dz_intro_seen") === "yes";
 
   if (introSeen) {
     intro.style.display = "none";
     intro.setAttribute("aria-hidden", "true");
+    showMain();
     return;
   }
 
   setTimeout(() => {
-    intro.style.transition = "opacity 600ms ease";
+    intro.style.transition = "opacity 550ms ease";
     intro.style.opacity = "0";
 
     setTimeout(() => {
       intro.style.display = "none";
       intro.setAttribute("aria-hidden", "true");
       if (canUseStorage) sessionStorage.setItem("dz_intro_seen", "yes");
-    }, 620);
-  }, 1350);
+      showMain();
+    }, 560);
+  }, 1650);
 });
