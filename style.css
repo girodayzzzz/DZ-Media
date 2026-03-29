@@ -69,6 +69,14 @@ body {
   width: min(1100px, 92%);
   margin: 0 auto;
   padding: 5rem 0 4rem;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 700ms ease, transform 700ms ease;
+}
+
+#main.is-visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .hero,
@@ -159,6 +167,17 @@ body {
   color: var(--muted);
 }
 
+
+.card ul {
+  padding-left: 1.1rem;
+  margin-top: 0.6rem;
+}
+
+.card li {
+  color: var(--muted);
+  margin-bottom: 0.25rem;
+}
+
 .split {
   display: grid;
   grid-template-columns: 2fr 1fr;
@@ -186,10 +205,45 @@ body {
 #intro {
   position: fixed;
   inset: 0;
-  background: #04070f;
+  background: radial-gradient(circle at 50% 40%, #0f1d35 0%, #050914 55%, #03050c 100%);
   display: grid;
   place-items: center;
+  overflow: hidden;
   z-index: 9;
+}
+
+.intro-door {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 50%;
+  background: linear-gradient(145deg, rgba(16, 27, 48, 0.82), rgba(5, 9, 18, 0.95));
+  border-right: 1px solid rgba(141, 194, 255, 0.2);
+  box-shadow: inset 0 0 24px rgba(141, 194, 255, 0.1);
+}
+
+.intro-left {
+  left: 0;
+  animation: open-left 900ms 650ms ease forwards;
+}
+
+.intro-right {
+  right: 0;
+  transform-origin: right center;
+  border-right: 0;
+  border-left: 1px solid rgba(133, 255, 224, 0.2);
+  animation: open-right 900ms 650ms ease forwards;
+}
+
+.scan-line {
+  position: absolute;
+  left: -15%;
+  top: 0;
+  width: 30%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(141, 194, 255, 0.25), transparent);
+  filter: blur(3px);
+  animation: scan 1400ms ease-in-out forwards;
 }
 
 .intro-content {
@@ -228,6 +282,35 @@ body {
   }
   50% {
     transform: translate(26px, -20px);
+  }
+}
+
+
+@keyframes scan {
+  0% {
+    transform: translateX(0);
+    opacity: 0.25;
+  }
+  40% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateX(420%);
+    opacity: 0;
+  }
+}
+
+@keyframes open-left {
+  to {
+    transform: translateX(-105%);
+    opacity: 0;
+  }
+}
+
+@keyframes open-right {
+  to {
+    transform: translateX(105%);
+    opacity: 0;
   }
 }
 
