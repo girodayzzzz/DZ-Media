@@ -3,11 +3,34 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DZ Media | AI Services, Lead Generation & Management</title>
-  <meta name="description" content="DZ Media helps companies scale with AI services, lead generation systems, and modern management automation.">
+  <title>DZ Media | AI Growth Systems, SEO & Revenue Operations</title>
+  <meta name="description" content="DZ Media helps B2B teams scale with AI workflows, SEO growth systems, and automated revenue operations that convert more qualified leads.">
+  <meta name="keywords" content="AI agency, B2B lead generation, SEO services, marketing automation, revenue operations">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="DZ Media">
+  <meta property="og:title" content="DZ Media | AI Growth Systems for B2B Teams">
+  <meta property="og:description" content="Professional AI implementation, SEO execution, and operations automation built for measurable growth.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.dzmedia.local/">
+  <meta property="og:image" content="https://www.dzmedia.local/assets/og-home.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://www.dzmedia.local/">
   <link rel="stylesheet" href="style.css">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "DZ Media",
+      "url": "https://www.dzmedia.local/",
+      "description": "AI growth partner for B2B companies focused on lead generation, SEO, and operations automation.",
+      "email": "hello@dzmedia.local",
+      "sameAs": []
+    }
+  </script>
 </head>
-<body>
+<body class="intro-page">
+  <a class="skip-link" href="#main">Skip to content</a>
+
   <div id="intro" aria-hidden="true" role="presentation">
     <span class="intro-door intro-left"></span>
     <span class="intro-door intro-right"></span>
@@ -26,35 +49,44 @@
   </div>
 
   <main id="main">
+    <nav class="site-nav" aria-label="Primary navigation">
+      <a class="brand" href="index.html">DZ Media</a>
+      <div class="nav-links">
+        <a href="services.html">Services</a>
+        <a href="about.html">About Us</a>
+        <a href="#booking">Book a Call</a>
+      </div>
+    </nav>
+
     <header class="hero">
       <p class="badge">For B2B Companies</p>
       <h2>Professional AI Services to Win More Clients and Run Operations Better</h2>
       <p class="hero-copy">
-        We build practical AI systems for lead generation, client management, outreach workflows,
-        reporting, and daily operations—so your team closes more deals with less manual work.
+        We design and implement practical growth systems across SEO, lead generation, and internal operations.
+        Your team spends less time on repetitive work and more time closing revenue.
       </p>
       <div class="cta-group">
-        <a class="main-cta" href="#contact">Book a Strategy Call</a>
-        <a class="secondary-cta" href="services.html">View Services</a>
+        <a class="main-cta" href="#booking">Book a Strategy Call</a>
+        <a class="secondary-cta" href="services.html">Explore Services</a>
       </div>
     </header>
 
-    <section id="services" class="section cards">
+    <section id="services" class="section cards" aria-label="Core services">
       <article class="card">
         <h3>AI Lead Generation</h3>
-        <p>Qualified lead pipelines, smart targeting, enrichment, and outbound systems designed for consistent appointments.</p>
+        <p>ICP targeting, enrichment, outreach sequencing, and handoff into your CRM with quality controls for better meeting rates.</p>
+      </article>
+      <article class="card">
+        <h3>SEO Growth Systems</h3>
+        <p>Technical SEO, content strategy, and authority building focused on ranking high-intent keywords that drive pipeline.</p>
       </article>
       <article class="card">
         <h3>Management Automation</h3>
-        <p>Automate repetitive internal tasks, follow-ups, and team workflows using AI assistants and no-code integrations.</p>
+        <p>Automated reporting, reminders, SOP execution, and follow-up workflows to reduce operational bottlenecks.</p>
       </article>
       <article class="card">
-        <h3>Client Operations</h3>
-        <p>Improve handoff, onboarding, communication, and reporting with centralized systems built for service businesses.</p>
-      </article>
-      <article class="card">
-        <h3>Custom AI Implementation</h3>
-        <p>From GPT workflows to internal tools, we deploy solutions around your process—not generic templates.</p>
+        <h3>Revenue Operations</h3>
+        <p>Lifecycle design from first touch to closed deal, including dashboards and clear KPI visibility for faster decisions.</p>
       </article>
     </section>
 
@@ -62,19 +94,40 @@
       <div>
         <p class="kicker">Why DZ Media</p>
         <h3>Built for Revenue, Not Hype</h3>
-        <p>We focus on systems that produce measurable business outcomes: more qualified opportunities, faster team execution, and clearer decision-making.</p>
+        <p>We prioritize measurable business outcomes: qualified opportunities, faster delivery, stronger conversion rates, and reliable growth visibility.</p>
       </div>
       <ul>
         <li>Fast deployment cycles</li>
-        <li>Clear KPIs and reporting</li>
-        <li>Secure, scalable workflows</li>
+        <li>Transparent milestone tracking</li>
+        <li>Scalable systems and documentation</li>
       </ul>
     </section>
 
-    <section id="contact" class="section contact">
-      <h3>Let’s Build Your AI Growth Engine</h3>
-      <p>Tell us your goals and we’ll design a simple implementation plan for your company.</p>
-      <a class="main-cta" href="mailto:hello@dzmedia.local">hello@dzmedia.local</a>
+    <section id="booking" class="section contact">
+      <h3>Book a Strategy Call</h3>
+      <p>Fill this short form. Your booking details will be automatically prepared and sent by email after submission.</p>
+      <form id="booking-form" class="booking-form" novalidate>
+        <div class="form-grid">
+          <label>Full name
+            <input type="text" name="name" autocomplete="name" required>
+          </label>
+          <label>Business email
+            <input type="email" name="email" autocomplete="email" required>
+          </label>
+          <label>Company
+            <input type="text" name="company" autocomplete="organization" required>
+          </label>
+          <label>Preferred date
+            <input type="date" name="date" required>
+          </label>
+        </div>
+        <label>Project goals
+          <textarea name="goals" rows="4" placeholder="Tell us what you want to improve in marketing, SEO, sales, or operations." required></textarea>
+        </label>
+        <button class="main-cta" type="submit">Send Booking Request</button>
+      </form>
+      <p id="booking-message" class="helper-text" aria-live="polite"></p>
+      <a class="secondary-cta" href="mailto:hello@dzmedia.local">or email us directly: hello@dzmedia.local</a>
     </section>
   </main>
 

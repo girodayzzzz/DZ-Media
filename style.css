@@ -7,6 +7,7 @@
   --card: rgba(18, 29, 53, 0.66);
   --accent: #8dc2ff;
   --accent-2: #85ffe0;
+  --danger: #ff9696;
 }
 
 * {
@@ -22,6 +23,21 @@ body {
   min-height: 100vh;
   line-height: 1.6;
   overflow-x: hidden;
+}
+
+.skip-link {
+  position: absolute;
+  left: 0.5rem;
+  top: -3rem;
+  padding: 0.5rem 0.9rem;
+  border-radius: 0.5rem;
+  background: #fff;
+  color: #000;
+  z-index: 20;
+}
+
+.skip-link:focus {
+  top: 0.5rem;
 }
 
 .bg-effects {
@@ -68,7 +84,10 @@ body {
   z-index: 2;
   width: min(1100px, 92%);
   margin: 0 auto;
-  padding: 5rem 0 4rem;
+  padding: 2rem 0 4rem;
+}
+
+.intro-page #main {
   opacity: 0;
   transform: translateY(10px);
   transition: opacity 700ms ease, transform 700ms ease;
@@ -77,6 +96,36 @@ body {
 #main.is-visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+.site-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  gap: 1rem;
+}
+
+.brand {
+  font-weight: 700;
+  text-decoration: none;
+  color: var(--text);
+  font-size: 1.1rem;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.nav-links a {
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.nav-links a[aria-current="page"] {
+  color: var(--accent-2);
 }
 
 .hero,
@@ -99,16 +148,17 @@ body {
   margin-bottom: 0.85rem;
 }
 
+.hero h1,
 .hero h2 {
   font-size: clamp(1.8rem, 4vw, 3rem);
   line-height: 1.2;
-  max-width: 18ch;
+  max-width: 22ch;
   margin-bottom: 0.9rem;
 }
 
 .hero-copy {
   color: var(--muted);
-  max-width: 62ch;
+  max-width: 68ch;
   margin-bottom: 1.4rem;
 }
 
@@ -119,11 +169,14 @@ body {
 }
 
 .main-cta,
-.secondary-cta {
+.secondary-cta,
+button.main-cta {
   text-decoration: none;
   border-radius: 999px;
   padding: 0.8rem 1.2rem;
   font-weight: 600;
+  border: 0;
+  cursor: pointer;
   transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
 }
 
@@ -163,18 +216,19 @@ body {
 
 .card p,
 .section p,
-.section li {
+.section li,
+figcaption {
   color: var(--muted);
 }
 
-
-.card ul {
+.card ul,
+.section ul {
   padding-left: 1.1rem;
   margin-top: 0.6rem;
 }
 
-.card li {
-  color: var(--muted);
+.card li,
+.section li {
   margin-bottom: 0.25rem;
 }
 
@@ -185,8 +239,33 @@ body {
   align-items: center;
 }
 
-.split ul {
-  padding-left: 1.15rem;
+.about-intro {
+  grid-template-columns: 1.4fr 1fr;
+}
+
+.media-frame {
+  border: 1px solid var(--line);
+  border-radius: 0.9rem;
+  overflow: hidden;
+  background: rgba(7, 12, 22, 0.55);
+}
+
+.media-frame img {
+  width: 100%;
+  display: block;
+}
+
+.media-frame figcaption {
+  padding: 0.6rem 0.8rem;
+  font-size: 0.92rem;
+}
+
+.floaty {
+  animation: float 8s ease-in-out infinite;
+}
+
+.pulse {
+  animation: pulse 3.4s ease-in-out infinite;
 }
 
 .contact {
@@ -200,6 +279,45 @@ body {
 
 .contact p {
   margin-bottom: 1rem;
+}
+
+.booking-form {
+  text-align: left;
+  margin: 0 auto 0.8rem;
+  max-width: 780px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.8rem;
+}
+
+.booking-form label {
+  display: block;
+  margin-bottom: 0.8rem;
+  font-weight: 600;
+}
+
+.booking-form input,
+.booking-form textarea {
+  width: 100%;
+  border-radius: 0.65rem;
+  border: 1px solid var(--line);
+  background: rgba(7, 12, 22, 0.8);
+  color: var(--text);
+  padding: 0.7rem;
+  margin-top: 0.25rem;
+}
+
+.helper-text {
+  min-height: 1.2rem;
+  color: var(--accent-2);
+  margin-bottom: 0.6rem;
+}
+
+.helper-text.is-error {
+  color: var(--danger);
 }
 
 #intro {
@@ -281,10 +399,19 @@ body {
     transform: translate(0, 0);
   }
   50% {
-    transform: translate(26px, -20px);
+    transform: translate(16px, -12px);
   }
 }
 
+@keyframes pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 rgba(133, 255, 224, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 22px rgba(133, 255, 224, 0.22);
+  }
+}
 
 @keyframes scan {
   0% {
@@ -315,7 +442,14 @@ body {
 }
 
 @media (max-width: 800px) {
-  .split {
+  .split,
+  .about-intro,
+  .form-grid {
     grid-template-columns: 1fr;
+  }
+
+  .site-nav {
+    flex-direction: column;
+    align-items: flex-start;
   }
 }
