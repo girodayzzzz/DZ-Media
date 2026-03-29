@@ -1,0 +1,15 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 700'>
+  <defs>
+    <linearGradient id='line' x1='0' y1='0' x2='1' y2='0'>
+      <stop offset='0%' stop-color='#8dc2ff'/>
+      <stop offset='100%' stop-color='#85ffe0'/>
+    </linearGradient>
+  </defs>
+  <rect width='1200' height='700' fill='#070b14'/>
+  <rect x='120' y='140' width='220' height='140' rx='18' fill='#132641' stroke='url(#line)' stroke-width='3'/>
+  <rect x='490' y='140' width='220' height='140' rx='18' fill='#132641' stroke='url(#line)' stroke-width='3'/>
+  <rect x='860' y='140' width='220' height='140' rx='18' fill='#132641' stroke='url(#line)' stroke-width='3'/>
+  <rect x='305' y='420' width='220' height='140' rx='18' fill='#132641' stroke='url(#line)' stroke-width='3'/>
+  <rect x='675' y='420' width='220' height='140' rx='18' fill='#132641' stroke='url(#line)' stroke-width='3'/>
+  <path d='M340 210 H490 M710 210 H860 M970 280 L790 420 M525 490 H675 M415 420 L230 280' stroke='url(#line)' stroke-width='8' fill='none' stroke-linecap='round'/>
+</svg>
