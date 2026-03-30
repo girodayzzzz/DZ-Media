@@ -78,4 +78,39 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  const bookingForm = document.getElementById("booking-form");
+  const bookingMessage = document.getElementById("booking-message");
+
+  if (bookingForm && bookingMessage) {
+    bookingForm.addEventListener("submit", async (event) => {
+      event.preventDefault();
+
+      const formData = new FormData(bookingForm);
+      const goals = formData.get("goals");
+
+      if (goals && !formData.get("message") && !formData.get("details")) {
+        formData.append("details", goals.toString());
+      }
+
+      try {
+        const response = await fetch("https://formspree.io/f/mzdkrejv", {
+          method: "POST",
+          body: formData,
+          headers: {
+            Accept: "application/json",
+          },
+        });
+
+        if (!response.ok) {
+          throw new Error("Form submission failed");
+        }
+
+        bookingMessage.textContent = "Your strategy call request has been sent. We will contact you soon.";
+        bookingForm.reset();
+      } catch (error) {
+        bookingMessage.textContent = "Something went wrong. Please try again.";
+      }
+    });
+  }
+
 });
