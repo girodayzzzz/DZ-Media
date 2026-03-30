@@ -587,3 +587,13 @@ figcaption {
     scroll-behavior: auto !important;
   }
 }
+
+
+.card-link {
+  color: var(--text);
+  text-decoration: none;
+}
+
+.card-link:hover {
+  color: var(--accent-2);
+}
