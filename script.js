@@ -118,7 +118,7 @@ document.addEventListener("DOMContentLoaded", () => {
   whatsappLink.href = "https://wa.me/38670665050";
   whatsappLink.target = "_blank";
   whatsappLink.rel = "noopener noreferrer";
-  whatsappLink.setAttribute("aria-label", "Piši na WhatsApp");
+  whatsappLink.setAttribute("aria-label", "Message us on WhatsApp");
   whatsappLink.textContent = "WhatsApp";
   document.body.appendChild(whatsappLink);
 
