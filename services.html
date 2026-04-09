@@ -6,6 +6,114 @@
   <title>Services | DZ Media</title>
   <meta name="description" content="Choose the right website package: BASIC, STANDARD, or PREMIUM. Clear pricing, fast start, and focus on results.">
   <link rel="stylesheet" href="style.css">
+  <style>
+    .services-hero {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .services-hero::after {
+      content: "";
+      position: absolute;
+      inset: auto -15% -45% auto;
+      width: 22rem;
+      height: 22rem;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(133, 255, 224, 0.25) 0%, transparent 68%);
+      pointer-events: none;
+    }
+
+    .hero-highlights {
+      margin-top: 1.35rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 0.7rem;
+    }
+
+    .highlight-chip {
+      border: 1px solid rgba(176, 198, 255, 0.3);
+      border-radius: 0.8rem;
+      background: rgba(7, 12, 22, 0.4);
+      padding: 0.65rem 0.8rem;
+      font-size: 0.85rem;
+      color: #d6e4ff;
+    }
+
+    .services-grid {
+      gap: 1rem;
+    }
+
+    .service-card {
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      min-height: 220px;
+      transform: translateY(20px);
+      opacity: 0;
+      transition: transform 450ms ease, opacity 450ms ease, border-color 250ms ease, box-shadow 250ms ease;
+    }
+
+    .service-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto;
+      height: 3px;
+      background: linear-gradient(90deg, #8dc2ff, #85ffe0);
+      opacity: 0.9;
+    }
+
+    .service-card::after {
+      content: "";
+      position: absolute;
+      inset: -35% -60% auto auto;
+      width: 12rem;
+      height: 12rem;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(141, 194, 255, 0.18) 0%, transparent 65%);
+      pointer-events: none;
+      transition: transform 300ms ease;
+    }
+
+    .service-card.is-in {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .service-card:hover::after {
+      transform: translate(-12px, 8px) scale(1.08);
+    }
+
+    .service-icon {
+      width: 2.1rem;
+      height: 2.1rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(176, 198, 255, 0.35);
+      border-radius: 0.6rem;
+      margin-bottom: 0.75rem;
+      font-size: 1.1rem;
+      background: rgba(14, 22, 39, 0.7);
+    }
+
+    .service-card p {
+      margin-bottom: 1rem;
+    }
+
+    .service-card .main-cta {
+      margin-top: auto;
+      align-self: flex-start;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .service-card {
+        transition: none;
+        transform: none;
+        opacity: 1;
+      }
+    }
+  </style>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -28,41 +136,52 @@
       </div>
     </nav>
 
-    <header class="hero">
+    <header class="hero services-hero">
       <p class="badge">Service packages</p>
       <h1>Choose a package to get a professional website faster</h1>
       <p class="hero-copy">Each package is designed for conversion: clear structure, modern look, mobile responsiveness, and strong calls to action.</p>
+      <div class="hero-highlights" aria-label="Service highlights">
+        <p class="highlight-chip">Fast delivery cycles</p>
+        <p class="highlight-chip">Conversion-focused layouts</p>
+        <p class="highlight-chip">Modern visual design</p>
+        <p class="highlight-chip">Built for business growth</p>
+      </div>
     </header>
 
     <section class="section">
       <p class="kicker">Services</p>
       <h2>Explore our service categories</h2>
-      <div class="cards">
-        <article class="card">
+      <div class="cards services-grid">
+        <article class="card service-card">
+          <span class="service-icon" aria-hidden="true">🌐</span>
           <h3>Website Development</h3>
           <p>Modern, fast, and high-converting websites for businesses.</p>
           <a class="main-cta" href="website-development.html">Learn More</a>
         </article>
 
-        <article class="card">
+        <article class="card service-card">
+          <span class="service-icon" aria-hidden="true">📈</span>
           <h3>Marketing</h3>
           <p>Grow your business with paid ads and digital strategies.</p>
           <a class="main-cta" href="marketing.html">Learn More</a>
         </article>
 
-        <article class="card">
+        <article class="card service-card">
+          <span class="service-icon" aria-hidden="true">💬</span>
           <h3>Social Media Management</h3>
           <p>We manage and grow your social media presence.</p>
           <a class="main-cta" href="social-media.html">Learn More</a>
         </article>
 
-        <article class="card">
+        <article class="card service-card">
+          <span class="service-icon" aria-hidden="true">🎨</span>
           <h3>AI Content &amp; Graphic Design</h3>
           <p>High-quality visuals and content created with AI.</p>
           <a class="main-cta" href="ai-design.html">Learn More</a>
         </article>
 
-        <article class="card">
+        <article class="card service-card">
+          <span class="service-icon" aria-hidden="true">⚙️</span>
           <h3>Automation &amp; AI Solutions</h3>
           <p>Automate your business with smart AI systems.</p>
           <a class="main-cta" href="ai-automation.html">Learn More</a>
@@ -72,5 +191,33 @@
   </main>
 
   <script src="script.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const cards = document.querySelectorAll(".service-card");
+      if (!cards.length) return;
+
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches || !("IntersectionObserver" in window)) {
+        cards.forEach((card) => card.classList.add("is-in"));
+        return;
+      }
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-in");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.2 }
+      );
+
+      cards.forEach((card, index) => {
+        card.style.transitionDelay = `${index * 90}ms`;
+        observer.observe(card);
+      });
+    });
+  </script>
 </body>
 </html>
