@@ -124,8 +124,8 @@ body {
 .brand img {
   display: block;
   width: auto;
-  height: 40px;
-  max-width: min(36vw, 140px);
+  height: 52px;
+  max-width: min(40vw, 180px);
   object-fit: contain;
 }
 
