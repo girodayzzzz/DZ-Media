@@ -119,14 +119,22 @@ body {
   display: inline-flex;
   align-items: center;
   text-decoration: none;
+  border-radius: 0.8rem;
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.brand:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.08);
 }
 
 .brand img {
   display: block;
   width: auto;
-  height: 52px;
-  max-width: min(40vw, 180px);
+  height: 54px;
+  max-width: min(46vw, 240px);
   object-fit: contain;
+  filter: drop-shadow(0 8px 18px rgba(79, 123, 255, 0.25));
 }
 
 .nav-links {
