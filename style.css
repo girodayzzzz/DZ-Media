@@ -116,10 +116,17 @@ body {
 }
 
 .brand {
-  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
   text-decoration: none;
-  color: var(--text);
-  font-size: 1.1rem;
+}
+
+.brand img {
+  display: block;
+  width: auto;
+  height: 34px;
+  max-width: min(44vw, 190px);
+  object-fit: contain;
 }
 
 .nav-links {
