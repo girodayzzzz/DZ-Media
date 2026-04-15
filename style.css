@@ -259,6 +259,8 @@ button.main-cta {
   background: rgba(7, 12, 22, 0.55);
   border-radius: 0.95rem;
   padding: 1.1rem;
+  display: flex;
+  flex-direction: column;
   transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
@@ -307,6 +309,11 @@ figcaption {
 .card li,
 .section li {
   margin-bottom: 0.25rem;
+}
+
+.card .main-cta {
+  margin-top: auto;
+  align-self: flex-start;
 }
 
 .split {
