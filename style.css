@@ -724,8 +724,18 @@ figcaption {
 
 .footer-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  grid-template-columns: 1fr;
   gap: 1rem;
+}
+
+.footer-grid section {
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(178, 197, 255, 0.18);
+}
+
+.footer-grid section:last-child {
+  padding-bottom: 0;
+  border-bottom: none;
 }
 
 .footer-grid h3 {
