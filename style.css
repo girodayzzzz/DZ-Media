@@ -695,8 +695,9 @@ figcaption {
 
 .footer-top {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
   gap: 0.9rem;
   padding-bottom: 1rem;
   border-bottom: 1px solid rgba(178, 197, 255, 0.18);
@@ -724,18 +725,18 @@ figcaption {
 
 .footer-grid {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1rem;
 }
 
 .footer-grid section {
-  padding-bottom: 1rem;
-  border-bottom: 1px solid rgba(178, 197, 255, 0.18);
+  padding-bottom: 0;
+  border-bottom: none;
 }
 
 .footer-grid section:last-child {
-  padding-bottom: 0;
-  border-bottom: none;
+  justify-self: end;
+  text-align: right;
 }
 
 .footer-grid h3 {
@@ -760,8 +761,19 @@ figcaption {
 }
 
 @media (max-width: 640px) {
-  .footer-top {
-    flex-direction: column;
-    align-items: flex-start;
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-grid section {
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(178, 197, 255, 0.18);
+  }
+
+  .footer-grid section:last-child {
+    padding-bottom: 0;
+    border-bottom: none;
+    justify-self: auto;
+    text-align: left;
   }
 }
