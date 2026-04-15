@@ -668,3 +668,29 @@ figcaption {
   outline: 2px solid var(--accent-2);
   outline-offset: 2px;
 }
+
+
+.site-footer {
+  width: min(1100px, 92%);
+  margin: 0 auto 2rem;
+  padding: 1rem 1.25rem;
+  border: 1px solid var(--line);
+  border-radius: 0.95rem;
+  background: rgba(9, 15, 29, 0.72);
+  box-shadow: var(--shadow-soft);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  color: var(--muted);
+}
+
+.site-footer a {
+  color: var(--accent-2);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.site-footer a:hover {
+  color: var(--text);
+}
