@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book a Call | DZ Media</title>
+  <meta name="description" content="Book a strategy call with DZ Media to discuss SEO, AI workflows, and growth systems.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.dzmedia.local/booking.html">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/dz%20media%20logo.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/dz%20media%20logo.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="bg-effects" aria-hidden="true">
+    <span class="orb orb-1"></span>
+    <span class="orb orb-2"></span>
+    <span class="grid"></span>
+  </div>
+
+  <main id="main" class="is-visible">
+    <nav class="site-nav" aria-label="Primary navigation">
+      <a class="brand" href="index.html"><img src="assets/dz-media-logo.svg" alt="DZ Media logo"></a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </nav>
+
+    <header class="hero">
+      <p class="badge">Booking</p>
+      <h1>Book a Strategy Call</h1>
+      <p class="hero-copy">Share a few details and we will prepare your call around your SEO, AI automation, and growth goals.</p>
+      <div class="cta-group">
+        <a class="secondary-cta" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Strategy%20Call%20with%20DZ%20Media&details=Discuss%20SEO%2C%20lead%20generation%2C%20and%20growth%20operations%20with%20DZ%20Media.&add=info.dayzzzz@gmail.com" target="_blank" rel="noopener noreferrer">Book in Google Calendar</a>
+      </div>
+    </header>
+
+    <section class="section contact">
+      <h2>Book Your Call</h2>
+      <p>Fill this short form. Your booking details will be automatically prepared and sent by email after submission.</p>
+      <form id="booking-form" class="booking-form" action="https://formspree.io/f/mzdkrejv" method="POST">
+        <div class="form-grid">
+          <label>Full name
+            <input type="text" name="name" autocomplete="name" required>
+          </label>
+          <label>Business email
+            <input type="email" name="email" autocomplete="email" required>
+          </label>
+          <label>Company
+            <input type="text" name="company" autocomplete="organization" required>
+          </label>
+          <label>Preferred date
+            <input type="date" name="date" required>
+          </label>
+        </div>
+        <label>Project goals
+          <textarea name="goals" rows="4" placeholder="Tell us what you want to improve in marketing, SEO, sales, or operations." required></textarea>
+        </label>
+        <button class="main-cta" type="submit">Send Booking Request</button>
+      </form>
+      <p id="booking-message" class="helper-text">After submitting, we will receive your booking details by email automatically. You can also create the appointment directly in Google Calendar.</p>
+      <a class="secondary-cta" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Strategy%20Call%20with%20DZ%20Media&details=Discuss%20SEO%2C%20lead%20generation%2C%20and%20growth%20operations%20with%20DZ%20Media.&add=info.dayzzzz@gmail.com" target="_blank" rel="noopener noreferrer">Create Appointment in Google Calendar</a>
+      <a class="secondary-cta" href="mailto:info.dayzzzz@gmail.com">or email us directly: info.dayzzzz@gmail.com</a>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© DZ Media</p>
+    <a href="booking.html">Book a Call</a>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
