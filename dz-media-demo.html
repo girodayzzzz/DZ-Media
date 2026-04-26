@@ -3,29 +3,27 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="DZ Media - Digitalna vizitka za vaše podjetje" />
-  <title>DZ Media | Digitalna vizitka</title>
+  <meta name="description" content="Digitalna vizitka, ki podjetjem prinaša več strank in več povpraševanj v enem kliku." />
+  <title>Digitalna vizitka | Demo</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --bg: #f5f7fb;
+      --bg: #f6f7f9;
       --surface: #ffffff;
-      --text: #111827;
-      --muted: #4b5563;
-      --border: #e5e7eb;
-      --accent: #2563eb;
-      --accent-dark: #1d4ed8;
-      --shadow: 0 8px 30px rgba(2, 6, 23, 0.08);
+      --text: #101114;
+      --muted: #5b6270;
+      --border: #e7e9ee;
+      --accent: #1663ff;
+      --accent-dark: #0f4fd3;
+      --shadow: 0 10px 32px rgba(16, 17, 20, 0.08);
       --radius: 16px;
     }
 
     * { box-sizing: border-box; }
 
-    html {
-      scroll-behavior: smooth;
-    }
+    html { scroll-behavior: smooth; }
 
     body {
       margin: 0;
@@ -47,9 +45,7 @@
       margin: 0 auto;
     }
 
-    section {
-      padding: 4rem 0;
-    }
+    section { padding: 4rem 0; }
 
     .section-title {
       font-size: clamp(1.4rem, 2.8vw, 2rem);
@@ -60,62 +56,73 @@
     .section-subtitle {
       margin: 0;
       color: var(--muted);
-      max-width: 65ch;
+      max-width: 70ch;
     }
 
     .hero {
       min-height: 90vh;
       display: grid;
       align-items: center;
-      padding-top: 5.5rem;
+      padding-top: 5.2rem;
       padding-bottom: 3rem;
     }
 
-    .hero-card {
-      background: rgba(255, 255, 255, 0.88);
-      backdrop-filter: blur(8px);
+    .hero-card,
+    .about-box,
+    .contact-box,
+    .cta-box,
+    .price-card {
+      background: rgba(255, 255, 255, .92);
       border: 1px solid var(--border);
-      border-radius: calc(var(--radius) + 4px);
+      border-radius: calc(var(--radius) + 2px);
       box-shadow: var(--shadow);
-      padding: clamp(1.2rem, 3vw, 3rem);
+      padding: clamp(1.2rem, 2.6vw, 2.4rem);
     }
 
     .eyebrow {
       display: inline-flex;
       align-items: center;
-      gap: .5rem;
+      gap: .45rem;
       padding: .35rem .7rem;
-      border: 1px solid #c7d2fe;
+      border: 1px solid #d7e4ff;
       border-radius: 999px;
-      background: #eef2ff;
-      color: #3730a3;
+      background: #f3f7ff;
+      color: var(--accent-dark);
       font-size: .85rem;
       margin-bottom: 1rem;
+      font-weight: 600;
     }
 
     .hero h1 {
-      font-size: clamp(2rem, 7vw, 4rem);
-      line-height: 1.05;
+      font-size: clamp(2rem, 7vw, 3.7rem);
+      line-height: 1.08;
       margin: 0;
       letter-spacing: -0.02em;
     }
 
     .hero h2 {
-      margin: .75rem 0 1rem;
-      font-size: clamp(1.1rem, 3vw, 1.6rem);
-      font-weight: 600;
-      color: #1f2937;
+      margin: .9rem 0 1rem;
+      font-size: clamp(1.05rem, 2.5vw, 1.35rem);
+      font-weight: 500;
+      color: #232730;
     }
 
     .hero p {
       margin: 0;
-      font-size: clamp(1rem, 2.2vw, 1.1rem);
+      font-size: clamp(1rem, 2.2vw, 1.08rem);
       color: var(--muted);
       max-width: 58ch;
     }
 
+    .trust-line {
+      margin-top: .95rem;
+      font-size: .92rem;
+      color: #3b4352;
+      font-weight: 500;
+    }
+
     .btn-row {
-      margin-top: 1.6rem;
+      margin-top: 1.5rem;
       display: flex;
       flex-wrap: wrap;
       gap: .7rem;
@@ -142,14 +149,14 @@
     .btn-primary {
       background: var(--accent);
       color: #fff;
-      box-shadow: 0 6px 16px rgba(37, 99, 235, 0.25);
+      box-shadow: 0 8px 18px rgba(22, 99, 255, 0.28);
     }
 
     .btn-primary:hover { background: var(--accent-dark); }
 
     .btn-outline {
       color: var(--text);
-      border-color: #d1d5db;
+      border-color: #d4dae4;
       background: #fff;
     }
 
@@ -158,24 +165,55 @@
       color: var(--accent);
     }
 
-    .about-box,
-    .contact-box,
-    .cta-box {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: clamp(1rem, 2.5vw, 2rem);
+    .value-points {
+      margin-top: 1.1rem;
+      display: grid;
+      gap: .55rem;
+      color: #323843;
+      font-weight: 500;
     }
 
-    .services-grid {
-      margin-top: 1.5rem;
+    .price-wrap {
+      margin-top: 1.4rem;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: .9rem;
+    }
+
+    .price-card {
+      background: linear-gradient(145deg, #f4f8ff, #ffffff 55%);
+      border-color: #cfe0ff;
+    }
+
+    .price-label {
+      margin: 0;
+      font-size: .86rem;
+      color: var(--accent-dark);
+      font-weight: 700;
+      letter-spacing: .02em;
+      text-transform: uppercase;
+    }
+
+    .price-value {
+      margin: .2rem 0 .35rem;
+      font-size: clamp(1.5rem, 4vw, 2rem);
+      line-height: 1.15;
+      font-weight: 800;
+    }
+
+    .steps-grid,
+    .services-grid,
+    .usecase-grid,
+    .gallery-grid {
+      margin-top: 1.4rem;
       display: grid;
       grid-template-columns: 1fr;
       gap: 1rem;
     }
 
-    .service-card {
+    .step-card,
+    .service-card,
+    .usecase-card {
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: var(--radius);
@@ -183,10 +221,12 @@
       transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
     }
 
-    .service-card:hover {
+    .step-card:hover,
+    .service-card:hover,
+    .usecase-card:hover {
       transform: translateY(-4px);
-      border-color: #bfdbfe;
-      box-shadow: 0 10px 26px rgba(37, 99, 235, 0.13);
+      border-color: #cad8f6;
+      box-shadow: 0 10px 26px rgba(22, 99, 255, 0.11);
     }
 
     .icon {
@@ -195,29 +235,26 @@
       border-radius: 10px;
       display: grid;
       place-items: center;
-      background: #eff6ff;
+      background: #eff4ff;
       color: var(--accent);
       margin-bottom: .75rem;
       font-size: 1.2rem;
-      border: 1px solid #dbeafe;
+      border: 1px solid #d9e5ff;
     }
 
-    .service-card h3 {
+    .step-card h3,
+    .service-card h3,
+    .usecase-card h3 {
       margin: 0 0 .35rem;
       font-size: 1.05rem;
     }
 
-    .service-card p {
+    .step-card p,
+    .service-card p,
+    .usecase-card p {
       margin: 0;
       color: var(--muted);
       font-size: .95rem;
-    }
-
-    .gallery-grid {
-      margin-top: 1.4rem;
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: .9rem;
     }
 
     .gallery-grid figure {
@@ -226,17 +263,31 @@
       border-radius: 14px;
       border: 1px solid var(--border);
       background: #fff;
+      position: relative;
     }
 
     .gallery-grid img {
       aspect-ratio: 16 / 10;
       object-fit: cover;
       width: 100%;
-      transition: transform .5s ease;
+      transition: transform .55s ease, filter .55s ease;
     }
 
     .gallery-grid figure:hover img {
-      transform: scale(1.03);
+      transform: scale(1.05);
+      filter: saturate(1.08);
+    }
+
+    .gallery-grid figcaption {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      margin: 0;
+      padding: .6rem .75rem;
+      color: #fff;
+      font-size: .88rem;
+      background: linear-gradient(180deg, transparent, rgba(10, 11, 14, .72));
     }
 
     .contact-list {
@@ -244,7 +295,7 @@
       padding: 0;
       margin: 1rem 0 0;
       display: grid;
-      gap: .6rem;
+      gap: .55rem;
     }
 
     .contact-list a {
@@ -261,9 +312,9 @@
     }
 
     .cta-box p {
-      margin: .5rem auto 1.3rem;
+      margin: .5rem auto 1.2rem;
       color: var(--muted);
-      max-width: 55ch;
+      max-width: 58ch;
     }
 
     .fade-in {
@@ -283,12 +334,12 @@
       right: 0;
       bottom: 0;
       z-index: 50;
-      background: rgba(255, 255, 255, .95);
+      background: rgba(255, 255, 255, .96);
       border-top: 1px solid var(--border);
       backdrop-filter: blur(10px);
       padding: .5rem .65rem calc(.5rem + env(safe-area-inset-bottom));
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       gap: .5rem;
     }
 
@@ -302,22 +353,25 @@
       text-align: center;
       color: var(--muted);
       font-size: .9rem;
-      padding: 2rem 0 5.5rem;
+      padding: 2rem 0 5.4rem;
     }
 
     @media (min-width: 700px) {
-      .services-grid {
+      .steps-grid,
+      .services-grid,
+      .usecase-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
-      .gallery-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
+      .gallery-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .price-wrap { grid-template-columns: 1.2fr .8fr; }
     }
 
     @media (min-width: 980px) {
       section { padding: 5rem 0; }
+      .steps-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
       .services-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+      .usecase-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
       .gallery-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
       .sticky-mobile { display: none; }
       footer { padding-bottom: 2rem; }
@@ -336,14 +390,28 @@
   <header class="hero">
     <div class="container">
       <div class="hero-card fade-in">
-        <span class="eyebrow">Digitalna predstavitev podjetja</span>
-        <h1>DZ Media</h1>
-        <h2>Digitalna vizitka za vaše podjetje</h2>
-        <p>Vse na enem mestu – kontakt, storitve in predstavitev.</p>
+        <span class="eyebrow">Več strank. Manj kompliciranja.</span>
+        <h1>Tvoja digitalna vizitka, ki prinaša stranke</h1>
+        <h2>Vse na enem mestu – kontakt, storitve in predstavitev. Pripravljeno za telefon.</h2>
+        <p>Stranka te kontaktira v 1 kliku. Brez iskanja številke, brez izgubljenih povpraševanj, brez zapletov.</p>
         <div class="btn-row">
-          <a class="btn btn-primary" href="tel:+38640111222" aria-label="Pokliči DZ Media">📞 Pokliči</a>
-          <a class="btn btn-outline" href="mailto:info@dzmedia.si" aria-label="Pošlji email DZ Media">✉️ Pošlji email</a>
+          <a class="btn btn-primary" href="tel:+38640111222" aria-label="Pokliči">📞 Pokliči</a>
           <a class="btn btn-outline" href="https://wa.me/38640111222" target="_blank" rel="noopener" aria-label="Piši na WhatsApp">💬 WhatsApp</a>
+          <a class="btn btn-outline" href="mailto:info@primer-podjetje.si" aria-label="Pošlji email">✉️ Email</a>
+        </div>
+        <p class="trust-line">Deluje na vseh napravah • Brez začetnih stroškov</p>
+
+        <div class="price-wrap">
+          <div class="value-points">
+            <span>✅ Več povpraševanj iz telefona</span>
+            <span>✅ Jasna predstavitev dejavnosti</span>
+            <span>✅ En klik do klica, WhatsAppa ali emaila</span>
+          </div>
+          <aside class="price-card" aria-label="Cena">
+            <p class="price-label">Posebna ponudba</p>
+            <p class="price-value">Samo 15€/mesec + DDV</p>
+            <p class="section-subtitle">Brez začetnih stroškov. Brez vezave na dolge pogodbe.</p>
+          </aside>
         </div>
       </div>
     </div>
@@ -353,39 +421,84 @@
     <section id="about">
       <div class="container">
         <div class="about-box fade-in">
-          <h2 class="section-title">Kaj ponuja DZ Media?</h2>
-          <p class="section-subtitle">
-            Pri DZ Media pomagamo podjetjem do boljše spletne prisotnosti z izdelavo digitalnih vizitk in landing strani,
-            optimizacijo vsebine za več povpraševanj ter z AI pomočjo pri hitrejši in učinkovitejši komunikaciji s strankami.
-          </p>
+          <h2 class="section-title">Zakaj ta stran prodaja?</h2>
+          <p class="section-subtitle">To je primer, kako lahko izgleda tvoja digitalna vizitka: obiskovalec takoj vidi, kaj ponujaš, zakaj si prava izbira in kako te kontaktira. Cilj je preprost: več strank in hitrejša odločitev za kontakt.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="how-it-works">
+      <div class="container">
+        <h2 class="section-title fade-in">Kako deluje</h2>
+        <p class="section-subtitle fade-in">Od ideje do strani, ki začne takoj loviti nove stranke.</p>
+        <div class="steps-grid">
+          <article class="step-card fade-in">
+            <div class="icon" aria-hidden="true">1️⃣</div>
+            <h3>Pošlješ podatke</h3>
+            <p>Pošlješ kontakt, opis storitev in nekaj fotografij. Brez tehničnega znanja.</p>
+          </article>
+          <article class="step-card fade-in">
+            <div class="icon" aria-hidden="true">2️⃣</div>
+            <h3>Mi pripravimo vizitko</h3>
+            <p>Postavimo čist, premium videz z jasnim pozivom na klic ali sporočilo.</p>
+          </article>
+          <article class="step-card fade-in">
+            <div class="icon" aria-hidden="true">3️⃣</div>
+            <h3>Dobiš več strank</h3>
+            <p>Ko nekdo odpre stran na telefonu, lahko takoj pokliče ali piše.</p>
+          </article>
         </div>
       </div>
     </section>
 
     <section id="services">
       <div class="container">
-        <h2 class="section-title fade-in">Storitve</h2>
-        <p class="section-subtitle fade-in">Čiste, jasne in učinkovite digitalne rešitve za sodobno podjetje.</p>
+        <h2 class="section-title fade-in">Kaj dobiš</h2>
+        <p class="section-subtitle fade-in">Vsak element je narejen za eno stvar: da stranka hitreje odda povpraševanje.</p>
         <div class="services-grid">
           <article class="service-card fade-in">
             <div class="icon" aria-hidden="true">🌐</div>
-            <h3>Izdelava landing strani</h3>
-            <p>Profesionalna predstavitev ponudbe s poudarkom na konverzijah.</p>
+            <h3>Digitalna vizitka (landing page)</h3>
+            <p>Profesionalen prvi vtis, ki zgradi zaupanje v nekaj sekundah.</p>
           </article>
           <article class="service-card fade-in">
-            <div class="icon" aria-hidden="true">💼</div>
-            <h3>Digitalna vizitka</h3>
-            <p>Vsi ključni kontakti in informacije zbrani na enem mestu.</p>
+            <div class="icon" aria-hidden="true">📲</div>
+            <h3>Klik za klic / WhatsApp / email</h3>
+            <p>Stranka ne razmišlja – samo klikne in te kontaktira.</p>
           </article>
           <article class="service-card fade-in">
-            <div class="icon" aria-hidden="true">📈</div>
-            <h3>Optimizacija za stranke</h3>
-            <p>Struktura strani in vsebine za več relevantnih povpraševanj.</p>
+            <div class="icon" aria-hidden="true">🖼️</div>
+            <h3>Galerija tvojih del</h3>
+            <p>Prikažeš rezultate in dobiš več zaupanja pred prvim pogovorom.</p>
           </article>
           <article class="service-card fade-in">
-            <div class="icon" aria-hidden="true">🤖</div>
-            <h3>AI podpora</h3>
-            <p>Pametna pomoč pri komunikaciji in hitrejšem odzivu na vprašanja.</p>
+            <div class="icon" aria-hidden="true">📱</div>
+            <h3>Optimizirano za telefon</h3>
+            <p>Večina obiskov pride z mobilnih naprav – stran je temu prilagojena.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="use-cases">
+      <div class="container">
+        <h2 class="section-title fade-in">Kako to pomaga tebi?</h2>
+        <p class="section-subtitle fade-in">Enak princip deluje v različnih dejavnostih, ker odstrani ovire med obiskovalcem in kontaktom.</p>
+        <div class="usecase-grid">
+          <article class="usecase-card fade-in">
+            <div class="icon" aria-hidden="true">🛠️</div>
+            <h3>Mojster</h3>
+            <p>Več klicev direktno iz telefona in manj izgubljenih povpraševanj.</p>
+          </article>
+          <article class="usecase-card fade-in">
+            <div class="icon" aria-hidden="true">🏡</div>
+            <h3>Apartmaji</h3>
+            <p>Več rezervacij, ker gost hitro vidi ponudbo in pošlje vprašanje.</p>
+          </article>
+          <article class="usecase-card fade-in">
+            <div class="icon" aria-hidden="true">💇</div>
+            <h3>Salon</h3>
+            <p>Več naročil, saj je rezervacija ali kontakt vedno oddaljen le en klik.</p>
           </article>
         </div>
       </div>
@@ -393,20 +506,24 @@
 
     <section id="gallery">
       <div class="container">
-        <h2 class="section-title fade-in">Galerija</h2>
-        <p class="section-subtitle fade-in">Primeri modernega poslovnega izgleda za digitalno predstavitev.</p>
+        <h2 class="section-title fade-in">Primeri predstavitve</h2>
+        <p class="section-subtitle fade-in">Realen izgled galerije, ki jo lahko prilagodimo tvoji dejavnosti in stilu.</p>
         <div class="gallery-grid">
           <figure class="fade-in">
-            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=80" alt="Poslovni sestanek v moderni pisarni" loading="lazy" decoding="async" />
+            <img src="https://images.unsplash.com/photo-1616627453735-6d4b4f9f76fe?auto=format&fit=crop&w=1280&q=76" alt="Urejena notranjost in izveden projekt" loading="lazy" decoding="async" />
+            <figcaption>Prikaz izvedenega projekta</figcaption>
           </figure>
           <figure class="fade-in">
-            <img src="https://images.unsplash.com/photo-1497215842964-222b430dc094?auto=format&fit=crop&w=1200&q=80" alt="Sodobna delovna miza z računalnikom" loading="lazy" decoding="async" />
+            <img src="https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=1280&q=76" alt="Profesionalna storitev za stranko" loading="lazy" decoding="async" />
+            <figcaption>Storitev v praksi</figcaption>
           </figure>
           <figure class="fade-in">
-            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80" alt="Analiza poslovnih rezultatov na zaslonu" loading="lazy" decoding="async" />
+            <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1280&q=76" alt="Sodelovanje ekipe in svetovanje" loading="lazy" decoding="async" />
+            <figcaption>Zaupanje skozi pristop</figcaption>
           </figure>
           <figure class="fade-in">
-            <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=1200&q=80" alt="Podjetniška predstavitev in sodelovanje" loading="lazy" decoding="async" />
+            <img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?auto=format&fit=crop&w=1280&q=76" alt="Digitalna predstavitev storitev na mobilni napravi" loading="lazy" decoding="async" />
+            <figcaption>Pripravljeno za mobilni obisk</figcaption>
           </figure>
         </div>
       </div>
@@ -416,10 +533,10 @@
       <div class="container">
         <div class="contact-box fade-in">
           <h2 class="section-title">Kontakt</h2>
-          <p class="section-subtitle">Dosegljivi smo po telefonu, emailu ali WhatsAppu.</p>
+          <p class="section-subtitle">Če želiš podoben rezultat za svoje podjetje, nas kontaktiraš v 1 kliku.</p>
           <ul class="contact-list">
             <li>Telefon: <a href="tel:+38640111222">+386 40 111 222</a></li>
-            <li>Email: <a href="mailto:info@dzmedia.si">info@dzmedia.si</a></li>
+            <li>Email: <a href="mailto:info@primer-podjetje.si">info@primer-podjetje.si</a></li>
             <li><a class="btn btn-primary" href="https://wa.me/38640111222" target="_blank" rel="noopener">Odpri WhatsApp</a></li>
           </ul>
         </div>
@@ -429,22 +546,21 @@
     <section id="cta">
       <div class="container">
         <div class="cta-box fade-in">
-          <h2 class="section-title">Želiš svojo digitalno vizitko?</h2>
-          <p>Kontaktiraj nas in pripravimo primer za tvoje podjetje.</p>
-          <a class="btn btn-primary" href="mailto:info@dzmedia.si">Začni zdaj</a>
+          <h2 class="section-title">Želiš takšno vizitko za svoje podjetje?</h2>
+          <p>Pošlji podatke in pripravimo primer za tvojo dejavnost.</p>
+          <a class="btn btn-primary" href="mailto:info@primer-podjetje.si">Kontaktiraj zdaj</a>
         </div>
       </div>
     </section>
   </main>
 
   <footer>
-    © <span id="year"></span> DZ Media. Vse pravice pridržane.
+    © <span id="year"></span> Digitalna vizitka demo. Vse pravice pridržane.
   </footer>
 
   <nav class="sticky-mobile" aria-label="Hitri kontakti">
-    <a class="btn btn-primary" href="tel:+38640111222">Pokliči</a>
-    <a class="btn btn-outline" href="mailto:info@dzmedia.si">Email</a>
-    <a class="btn btn-outline" href="https://wa.me/38640111222" target="_blank" rel="noopener">WhatsApp</a>
+    <a class="btn btn-primary" href="tel:+38640111222">📞 Call</a>
+    <a class="btn btn-outline" href="https://wa.me/38640111222" target="_blank" rel="noopener">💬 WhatsApp</a>
   </nav>
 
   <script>
