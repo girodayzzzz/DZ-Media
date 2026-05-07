@@ -163,6 +163,7 @@ body {
 
 .nav-dropdown {
   position: relative;
+  padding-bottom: 0.35rem;
 }
 
 .nav-dropdown-toggle {
@@ -184,7 +185,7 @@ body {
 
 .nav-dropdown-menu {
   position: absolute;
-  top: calc(100% + 0.35rem);
+  top: calc(100% + 0.15rem);
   left: 0;
   min-width: 10.5rem;
   border: 1px solid var(--line);
@@ -200,7 +201,8 @@ body {
 }
 
 .nav-dropdown:hover .nav-dropdown-menu,
-.nav-dropdown:focus-within .nav-dropdown-menu {
+.nav-dropdown:focus-within .nav-dropdown-menu,
+.nav-dropdown.is-open .nav-dropdown-menu {
   display: block;
 }
 
