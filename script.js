@@ -78,6 +78,32 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+
+  const dropdown = document.querySelector(".nav-dropdown");
+  const dropdownToggle = dropdown?.querySelector(".nav-dropdown-toggle");
+
+  if (dropdown && dropdownToggle) {
+    dropdownToggle.setAttribute("aria-expanded", "false");
+
+    dropdownToggle.addEventListener("click", (event) => {
+      event.stopPropagation();
+      const isOpen = dropdown.classList.toggle("is-open");
+      dropdownToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+    });
+
+    document.addEventListener("click", (event) => {
+      if (!dropdown.contains(event.target)) {
+        dropdown.classList.remove("is-open");
+        dropdownToggle.setAttribute("aria-expanded", "false");
+      }
+    });
+
+    dropdown.addEventListener("mouseleave", () => {
+      dropdown.classList.remove("is-open");
+      dropdownToggle.setAttribute("aria-expanded", "false");
+    });
+  }
+
   const bookingForm = document.getElementById("booking-form");
   const bookingMessage = document.getElementById("booking-message");
 
