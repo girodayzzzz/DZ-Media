@@ -102,6 +102,9 @@ body {
 }
 
 .site-nav {
+  position: relative;
+  z-index: 30;
+  overflow: visible;
   display: flex;
   justify-content: space-between;
   align-items: center;
